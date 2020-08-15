@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public Animator animator;
+    public Rigidbody2D rigidbody2D;
     public CharacterController2D controller;
     float horizontalMove = 0f;
     float verticalMove = 0f;
@@ -14,35 +15,55 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //get movement
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
-        Debug.Log(horizontalMove);
+        
+        //animator
+        animator.SetFloat("isWalking", Mathf.Abs(horizontalMove));
+        
+        //check the horizontal move
+        Debug.Log("Horizontal: "+horizontalMove);
+        
+        //detach body
         if (Input.GetKeyDown("space")) {
 
+        
             halfBody.HalfMode();
             halfBodyMode = true;
+            animator.SetBool("isDetached", true);
 
 
         }
+        //release detach
+      else if (Input.GetKeyUp("space")) {
+            
+            halfBodyMode = false;
+            Debug.Log("Hi " + halfBodyMode);
+            animator.SetBool("isDetached", false);
+            halfBody.ReturnBody();
 
-
-
-
+        }
     }
 
     void FixedUpdate() {
 
-        
-        controller.Move(horizontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime,halfBodyMode, false);
+        if (halfBodyMode == true) {
 
-        
-        halfBodyMode = false;
+            Debug.Log("Vertical: " + verticalMove);
+            Debug.Log("Half body mode is true: " + halfBodyMode);
+            controller.Move(horizontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, true, false);
 
+
+
+        }
+        else if(halfBodyMode == false) {
+
+            Debug.Log("Half body mode is false: " + halfBodyMode);
+            controller.Move(horizontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, false, false);
+
+        }
 
     }
-
-
-
-
+    
 }

@@ -61,12 +61,12 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move,float verticalMove, bool halfbody, bool jump)
-	{
-		
+    public void Move(float move, float verticalMove, bool halfbody, bool jump)
+    {
 
-		//only control the player if grounded or airControl is turned on
-		if (m_Grounded || m_AirControl)
+
+        //only control the player if grounded or airControl is turned on
+        if (halfbody == false && (m_GroundCheck || m_AirControl))
 		{
 
 			//
@@ -92,12 +92,13 @@ public class CharacterController2D : MonoBehaviour
 
 
         //if it is half body
-
-        if (halfbody = true) {
+        
+        else if (halfbody == true) {
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, verticalMove * 10f);
             // And then smoothing it out and applying it to the character
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+
 
             // If the input is moving the player right and the player is facing left...
             if (move > 0 && !m_FacingRight)
@@ -113,6 +114,7 @@ public class CharacterController2D : MonoBehaviour
             }
 
         }
+       
 
         // If the player should jump...
         if (m_Grounded && jump)
@@ -129,9 +131,7 @@ public class CharacterController2D : MonoBehaviour
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
 
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+        // rotate
+        transform.Rotate(0f,180f,0f);
 	}
 }
