@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f;
     public HalfBody halfBody;
     bool halfBodyMode = false;
+    public CharacterScript characterScript;
     // Update is called once per frame
     void Update()
     {
@@ -42,6 +43,24 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Hi " + halfBodyMode);
             animator.SetBool("isDetached", false);
             halfBody.ReturnBody();
+
+        }
+        if (Input.GetButtonDown("takedmg")) {
+            Debug.Log("Damage Taken: " + 10);
+            characterScript.TakeDamage(10);
+
+        }
+        if (Input.GetButtonDown("takelf"))
+        {
+            Debug.Log("LF Taken: " + 10);
+            characterScript.acquireLifeForce(10);
+
+        }
+        if (Input.GetButtonDown("loself"))
+        {
+            
+            Debug.Log("LF Lost: " + 10);
+            characterScript.loseLifeForce(10);
 
         }
     }
