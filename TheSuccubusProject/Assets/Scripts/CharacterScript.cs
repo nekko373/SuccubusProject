@@ -40,17 +40,11 @@ public class CharacterScript : MonoBehaviour
 
     }
     public void loseLifeForce(float lifeForce) {
-        if (lifeForce <= 0)
-        {
-            return;
-        }
-        else
-        {
+       
             //character loses life force when using certain skills
             currentLifeForce -= lifeForce;
-
             lifeForceBar.SetLifeForce(currentLifeForce);
-        }
+        
     }
     public void Die() {
 

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Succubus_Idle
+  m_Name: EnemyIdle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 2718a981c51724c4e9c897f4bcb5c722, type: 3}
+      value: {fileID: 21300000, guid: 8a7d9a3c2c0886c4facc999fe0d46e3b, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 292424ae0123de0458ea75219539476e, type: 3}
+      value: {fileID: 21300000, guid: 53f9ebead9a6bc646b1401263e658ef9, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 2718a981c51724c4e9c897f4bcb5c722, type: 3}
-    - {fileID: 21300000, guid: 292424ae0123de0458ea75219539476e, type: 3}
+    - {fileID: 21300000, guid: 8a7d9a3c2c0886c4facc999fe0d46e3b, type: 3}
+    - {fileID: 21300000, guid: 53f9ebead9a6bc646b1401263e658ef9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
