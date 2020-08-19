@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers; //to detect enemy in attack range
     public float attackDamage = 20f; // player's atk damage
     public Animator animator; //reference to Animator
-    public float attackRate = 5f; //attack rate of player
+    public float attackRate = 10f; //attack rate of player
     float nextAttackTime; //next time u are allowed to attack
 
     

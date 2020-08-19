@@ -105,9 +105,9 @@ public class PlayerMovement : MonoBehaviour
 
             //Debug.Log("Half body mode is false: " + halfBodyMode);
             controller.Move(horizontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, false, jump);
-            Debug.Log("jump should be true:  " + jump);
+            
             jump = false;
-            Debug.Log("jump is now " + jump);
+         
         }
 
     }
