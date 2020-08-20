@@ -10,26 +10,29 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers; //to detect enemy in attack range
     public float attackDamage = 20f; // player's atk damage
     public Animator animator; //reference to Animator
-    public float attackRate = 10f; //attack rate of player
+    public float attackRate = 2f; //attack rate of player
     float nextAttackTime; //next time u are allowed to attack
 
-    
-    void Update()
-    {
 
+
+    void FixedUpdate()
+    {
+        /*
         if (Time.time >= nextAttackTime) {
             
-        if (Input.GetKeyDown(KeyCode.K)) {
+            if (Input.GetKeyDown(KeyCode.K)) {
 
-            StartCoroutine(Attack());
-                nextAttackTime = Time.time + 1f / attackRate;
-        }
+                StartCoroutine(Attack());
+                Debug.Log("attacked clicked");
+                nextAttackTime = Time.time + 1f/attackRate;
+            }
 
         }
+        */
 
     }
 
-    IEnumerator Attack()
+    public IEnumerator Attack()
     {
         
         //attack animation

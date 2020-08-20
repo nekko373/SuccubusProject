@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    //temp variable
+    float nextAttackTime;
+    public float attackRate = 10f;
+    public Transform attackPoint;
+    public float attackRange = 1f;
+    public LayerMask enemyLayers;
+    public float attackDamage = 20f;
+
     public Animator animator; //reference to animator
     public Rigidbody2D rigidbody2D; // reference to rigidbody of player
     public CharacterController2D controller; //reference to the controller script
@@ -54,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+       
+
         //check if lose and acquire life force is working
         /*
         if (Input.GetButtonDown("takelf"))
@@ -89,8 +100,46 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    //temp atk ienum
+
+    public IEnumerator Attack()
+    {
+
+        //attack animation
+        animator.SetTrigger("Attack");
+
+
+        yield return new WaitForSeconds(.5f);
+        //detect enemies
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+
+        //loop to damage enemies hit
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            //take damage
+            enemy.GetComponent<EnemyScript>().TakeDamage(attackDamage);
+
+        }
+
+
+    }
+
 
     void FixedUpdate() {
+        //attack
+        if (Time.time >= nextAttackTime)
+        {
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+
+                StartCoroutine(Attack());
+                Debug.Log("attacked clicked");
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
+
+        }
 
         if (halfBodyMode == true) {
 
