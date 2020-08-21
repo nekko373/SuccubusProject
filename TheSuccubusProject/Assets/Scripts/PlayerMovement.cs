@@ -5,13 +5,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    //temp variable
+    //temp variable for atk
+    /*
     float nextAttackTime;
     public float attackRate = 10f;
     public Transform attackPoint;
     public float attackRange = 1f;
     public LayerMask enemyLayers;
     public float attackDamage = 20f;
+    */
+
+
 
     public Animator animator; //reference to animator
     public Rigidbody2D rigidbody2D; // reference to rigidbody of player
@@ -56,9 +60,11 @@ public class PlayerMovement : MonoBehaviour
             halfBody.ReturnBody();
 
         }
-        if (Input.GetButtonDown("takedmg")) {
         
-            characterScript.TakeDamage(10);
+        if (Input.GetKeyDown(KeyCode.J)) {
+
+            //transfer life force to health
+            
 
         }
 
@@ -101,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //temp atk ienum
-
+    /*
     public IEnumerator Attack()
     {
 
@@ -109,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Attack");
 
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
         //detect enemies
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -124,10 +130,11 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-
+    */
 
     void FixedUpdate() {
         //attack
+        /*
         if (Time.time >= nextAttackTime)
         {
 
@@ -141,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+    */
         if (halfBodyMode == true) {
 
            // Debug.Log("Vertical: " + verticalMove);

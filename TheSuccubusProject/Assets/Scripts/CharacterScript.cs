@@ -14,6 +14,8 @@ public class CharacterScript : MonoBehaviour
     public float maxLifeForce = 100f;
     public float currentLifeForce;
 
+    public Transform enemy;
+
     void Start() {
 
         currentHealth = maxhealth;
@@ -26,16 +28,17 @@ public class CharacterScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
 
-        
-        if (Time.time >= nextTime) {
-            
-            if (collision.gameObject.tag == "Enemy") {
-                Debug.Log("hit by enemy");
-          TakeDamage(10);
-          nextTime = Time.time + 1f;
 
-                }
-            
+        if (Time.time >= nextTime) {
+
+            if (collision.gameObject.tag == "Enemy") {
+                Physics2D.IgnoreLayerCollision(10, 9, true);
+                Debug.Log("hit by enemy");
+                StartCoroutine(TakeDamage(10));
+                nextTime = Time.time + 1f;
+
+            }
+
         }
     }
 
@@ -44,21 +47,48 @@ public class CharacterScript : MonoBehaviour
 
 
 
-    public void TakeDamage(float damage) {
-        
+    public IEnumerator TakeDamage(float damage) {
+
         //character takes damage
+        animator.SetTrigger("isHurt"); //animation for hurt
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        Vector3 bump = transform.position + new Vector3(-10f, 3f, 0f);
-        rb.AddForce(bump * 3, ForceMode2D.Impulse);
+        //disable colliders for a while
+
+        if (transform.position.x > enemy.position.x)
+        {
+
+            if (transform.position.y > enemy.position.y)
+            {
+                rb.AddForce(new Vector2(10f, 2f) * 3, ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(10f, -2f) * 3, ForceMode2D.Impulse);
+            }
+
+        }
+
+        else {
+            if (transform.position.y > enemy.position.y)
+            {
+                rb.AddForce(new Vector2(-10f, 2f) * 3, ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(-10f, -2f) * 3, ForceMode2D.Impulse);
+            }
+
+        }
+
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
 
 
-        animator.SetTrigger("isHurt"); //animation for hurt
-        
-      
-     
-     
+
+
+        yield return new WaitForSeconds(2f);
+        Physics2D.IgnoreLayerCollision(10, 9, false);
+
 
     }
     public void acquireLifeForce(float lifeForce) {
@@ -69,12 +99,14 @@ public class CharacterScript : MonoBehaviour
 
     }
     public void loseLifeForce(float lifeForce) {
-       
-            //character loses life force when using certain skills
-            currentLifeForce -= lifeForce;
-            lifeForceBar.SetLifeForce(currentLifeForce);
-        
+
+        //character loses life force when using certain skills
+        currentLifeForce -= lifeForce;
+        lifeForceBar.SetLifeForce(currentLifeForce);
+
     }
+
+    
     public void Die() {
 
         //character dies

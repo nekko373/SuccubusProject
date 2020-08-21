@@ -23,7 +23,10 @@ public class EnemyScript : MonoBehaviour
     public Transform player_t; //reference to player transform
     private float forFlip = 1f;
     public Rigidbody2D rb;
+    private bool isHurt = false;
 
+    //is the enemy facing right
+    bool isFacingRight = true;
 
     void Start()
     {
@@ -36,7 +39,12 @@ public class EnemyScript : MonoBehaviour
     
 
     public void TakeDamage(float damage) {
-        
+
+        if (currentHealth <= 0) {
+            return;
+        }
+
+        isHurt = true; 
         //subtract damage to current health
         currentHealth -= damage;
 
@@ -48,12 +56,19 @@ public class EnemyScript : MonoBehaviour
         Debug.Log(damage+" damage taken");
         animator.SetTrigger("Hurt");
 
+
         //apply bump effect
-       
-        rb.AddForce(transform.right * 5, ForceMode2D.Impulse);
+        if (attackPoint.position.x < transform.position.x)
+        {
+            rb.AddForce(new Vector2(3, 3f), ForceMode2D.Impulse);
+        }
+        else {
+            rb.AddForce(new Vector2(-3, 3f), ForceMode2D.Impulse);
+
+        }
+
         
         
-        StartCoroutine(waitForSeconds());
 
         if (currentHealth <= 0) {
             //play die animation
@@ -64,20 +79,21 @@ public class EnemyScript : MonoBehaviour
             player.acquireLifeForce(enemy_maxHealth / 3);
 
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
-                Physics2D.IgnoreLayerCollision(9, 10, true);
-            this.enabled = false;
-            
-            
-
+            Physics2D.IgnoreLayerCollision(9, 10, true);
+            gameObject.GetComponent<EnemyScript>().enabled = false ;
             }
 
-
+        StartCoroutine(waitForSeconds());
+        isHurt = false;
     }
 
     void FixedUpdate() {
 
+        if (!isHurt) {
+
+            Move();
         
-        Move();
+        }
        
             
         
@@ -90,9 +106,11 @@ public class EnemyScript : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position,
                 waypoints[waypointIndex].transform.position, enemy_movespeed * Time.deltaTime);
+
             if (transform.position == waypoints[waypointIndex].transform.position) {
                 forFlip *= -1;
                 transform.localScale = new Vector3(forFlip, 1, 1);
+                
                 waypointIndex++;
                     }
 

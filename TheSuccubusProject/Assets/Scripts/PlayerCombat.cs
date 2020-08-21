@@ -10,25 +10,28 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers; //to detect enemy in attack range
     public float attackDamage = 20f; // player's atk damage
     public Animator animator; //reference to Animator
-    public float attackRate = 2f; //attack rate of player
+    public float attackRate = 5f; //attack rate of player
     float nextAttackTime; //next time u are allowed to attack
 
 
 
-    void FixedUpdate()
+    void Update()
     {
-        /*
+        
         if (Time.time >= nextAttackTime) {
             
             if (Input.GetKeyDown(KeyCode.K)) {
 
                 StartCoroutine(Attack());
-                Debug.Log("attacked clicked");
-                nextAttackTime = Time.time + 1f/attackRate;
+                Debug.Log("Attacked Clicked");
+                nextAttackTime = Time.time + (1f / attackRate);
+
             }
 
+            
+
         }
-        */
+        
 
     }
 
@@ -39,7 +42,7 @@ public class PlayerCombat : MonoBehaviour
         animator.SetTrigger("Attack");
 
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         //detect enemies
         Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
