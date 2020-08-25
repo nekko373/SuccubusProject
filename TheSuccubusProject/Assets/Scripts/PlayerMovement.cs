@@ -61,14 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
         
-        if (Input.GetKeyDown(KeyCode.J)) {
-
-            //transfer life force to health
-            
-
-        }
-
-
+      
        
 
         //check if lose and acquire life force is working

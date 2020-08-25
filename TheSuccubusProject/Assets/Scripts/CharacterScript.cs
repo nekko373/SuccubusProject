@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using Fungus;
 public class CharacterScript : MonoBehaviour
 {
-
+    public Flowchart myFlowchart;
+    public Button button;
     public float maxhealth = 100f;
     public float currentHealth;
     public HealthBar healthbar;
@@ -13,6 +15,8 @@ public class CharacterScript : MonoBehaviour
     public Animator animator;
     public float maxLifeForce = 100f;
     public float currentLifeForce;
+    
+
 
     public Transform enemy;
 
@@ -26,7 +30,7 @@ public class CharacterScript : MonoBehaviour
         nextTime = Time.time + 1f;
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
+    void OnCollisionEnter2D(UnityEngine.Collision2D collision) {
 
 
         if (Time.time >= nextTime) {
@@ -40,9 +44,40 @@ public class CharacterScript : MonoBehaviour
             }
 
         }
+        
     }
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
 
+        if (collider.gameObject.tag == "NPC")
+        {
+            myFlowchart.ExecuteBlock("Start");
+            /*
+            gameObject.GetComponent<PlayerMovement>().enabled = false;
+                collider.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue()  ;
+            gameObject.GetComponent<PlayerMovement>().enabled = true ;
+           */
+        }
+
+    }
+
+    void Update() {
+
+        if (Input.GetButton("lifeforce")) {
+
+            if (currentLifeForce > 0 && currentHealth < 100) {
+                //play convert animation
+                currentHealth+=.10f;
+                currentLifeForce-=.10f;
+                lifeForceBar.SetLifeForce(currentLifeForce);
+                healthbar.SetHealth(currentHealth);
+                animator.SetTrigger("isConverting");
+            }
+
+        }
+        
+    }
 
 
 
