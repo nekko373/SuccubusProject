@@ -22,11 +22,11 @@ public class CharacterScript : MonoBehaviour
 
     void Start() {
 
-        currentHealth = maxhealth;
+        currentHealth = PlayerPrefs.GetFloat("PlayerHP");
         healthbar.SetMaxHealth(maxhealth);
-        currentLifeForce = 0;
+        currentLifeForce = PlayerPrefs.GetFloat("PlayerLF");
         lifeForceBar.SetMaxLF(maxLifeForce);
-        lifeForceBar.SetLifeForce(currentLifeForce);
+        lifeForceBar.SetLifeForce(PlayerPrefs.GetFloat("PlayerLF");
         nextTime = Time.time + 1f;
     }
 
@@ -72,6 +72,8 @@ public class CharacterScript : MonoBehaviour
                 currentLifeForce-=.10f;
                 lifeForceBar.SetLifeForce(currentLifeForce);
                 healthbar.SetHealth(currentHealth);
+                PlayerPrefs.SetFloat("PlayerHP", currentHealth);
+                PlayerPrefs.SetFloat("PlayerLF", currentLifeForce);
                 animator.SetTrigger("isConverting");
             }
 
