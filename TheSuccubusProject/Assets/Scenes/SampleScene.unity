@@ -14259,7 +14259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 27, y: -23}
+  scrollPos: {x: 335, y: 82}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 402
@@ -14809,7 +14809,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012016
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14836,7 +14836,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012017
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14879,7 +14879,7 @@ MonoBehaviour:
   value: 0
 --- !u!114 &1285012019
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14907,7 +14907,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012020
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14934,7 +14934,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012021
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14948,7 +14948,7 @@ MonoBehaviour:
   indentLevel: 0
 --- !u!114 &1285012022
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15191,7 +15191,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &1285012023
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15218,7 +15218,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012024
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15461,7 +15461,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &1285012025
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15488,7 +15488,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012026
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15516,7 +15516,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012027
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15543,7 +15543,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012028
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15570,7 +15570,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012029
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15597,7 +15597,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012030
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15625,7 +15625,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012031
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15652,7 +15652,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012032
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15680,7 +15680,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012033
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15708,7 +15708,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012034
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15735,7 +15735,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012035
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15762,7 +15762,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1285012036
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15914,7 +15914,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &1285012037
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -16456,9 +16456,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.7893494, y: -0.17067793}
   serializedVersion: 2
-  m_Radius: 1.28
+  m_Radius: 1.1065917
 --- !u!114 &1445020914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17480,12 +17480,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7392f1e7513f2c24d86d522c34dff14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myFlowchart: {fileID: 0}
   animator: {fileID: 2260719300026453972}
   rigidbody2D: {fileID: 1134510197}
-  controller: {fileID: 431981773000630913}
-  runSpeed: 30
   halfBody: {fileID: 3917335294637191671}
+  controller: {fileID: 431981773000630913}
   characterScript: {fileID: 2260719299220640395}
+  runSpeed: 30
 --- !u!114 &2260719299220640395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17493,21 +17494,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134510194}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fe9b41c0b1b6c641b20639dc8d84743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myFlowchart: {fileID: 1285011995}
   button: {fileID: 0}
-  maxhealth: 100
-  currentHealth: 0
   healthbar: {fileID: 989575132}
   lifeForceBar: {fileID: 760887720}
   animator: {fileID: 2260719300026453972}
-  maxLifeForce: 100
-  currentLifeForce: 0
   enemy: {fileID: 495287058}
+  maxhealth: 100
+  currentLifeForce: 0
+  currentHealth: 0
+  maxLifeForce: 100
 --- !u!95 &2260719300026453972
 Animator:
   serializedVersion: 3

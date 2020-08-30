@@ -3,35 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Fungus;
+using System.Collections.Specialized;
+
 public class CharacterScript : MonoBehaviour
 {
-    public Flowchart myFlowchart;
-    public Button button;
-    public float maxhealth = 100f;
-    public float currentHealth;
-    public HealthBar healthbar;
-    public LifeForce lifeForceBar;
-    float nextTime;
-    public Animator animator;
-    public float maxLifeForce = 100f;
-    public float currentLifeForce;
-    
+    public Flowchart myFlowchart; //reference to fungus flowchart
+    public Button button; //reference to button
+    public HealthBar healthbar; // reference to health bar
+    public LifeForce lifeForceBar; // reference to life force
+    public Animator animator; // reference to the animator
+    public Transform enemy; // reference to enemy
+
+    public float maxhealth = 100f; // set max health 
+    public float currentLifeForce; // var for player's current lf
+    public float currentHealth; // var for player's current hp
+    public float maxLifeForce = 100f; // set max life force
+    float nextTime; // var for next time that player can be hit
+    bool isDone;
 
 
-    public Transform enemy;
+    Rigidbody2D rb;
+
+
 
     void Start() {
 
-        currentHealth = PlayerPrefs.GetFloat("PlayerHP");
+        //set max life force and health
+        currentHealth = maxhealth;
         healthbar.SetMaxHealth(maxhealth);
-        currentLifeForce = PlayerPrefs.GetFloat("PlayerLF");
+        healthbar.SetHealth(currentHealth);
+        currentLifeForce = 0f;
         lifeForceBar.SetMaxLF(maxLifeForce);
-        lifeForceBar.SetLifeForce(PlayerPrefs.GetFloat("PlayerLF");
+        lifeForceBar.SetLifeForce(currentLifeForce);
         nextTime = Time.time + 1f;
+
+        rb = GetComponent<Rigidbody2D>();
+
     }
 
-    void OnCollisionEnter2D(UnityEngine.Collision2D collision) {
 
+    //do this when player collides with something like taking damage
+    void OnCollisionEnter2D(UnityEngine.Collision2D collision) {
 
         if (Time.time >= nextTime) {
 
@@ -47,22 +59,34 @@ public class CharacterScript : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    //do this when player collides with interactibles like NPC
+    void OnTriggerStay2D(Collider2D collider)
     {
 
         if (collider.gameObject.tag == "NPC")
         {
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             myFlowchart.ExecuteBlock("Start");
-            /*
-            gameObject.GetComponent<PlayerMovement>().enabled = false;
-                collider.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue()  ;
-            gameObject.GetComponent<PlayerMovement>().enabled = true ;
-           */
+            isDone = myFlowchart.GetBooleanVariable("Done");
+
         }
 
     }
+   
+
 
     void Update() {
+
+
+        if (isDone)
+        {
+            GetComponent<PlayerMovement>().enabled = true;
+            GetComponent<PlayerCombat>().enabled = true;
+        }
+
+
+
 
         if (Input.GetButton("lifeforce")) {
 
@@ -148,5 +172,11 @@ public class CharacterScript : MonoBehaviour
 
         //character dies
         //character death animation
+    }
+
+    IEnumerator WaitForSeconds(float seconds) {
+
+        yield return new WaitForSeconds(seconds);
+    
     }
 }

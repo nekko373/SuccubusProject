@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
     public Animator animator; //reference to Animator
     public float attackRate = 5f; //attack rate of player
     float nextAttackTime; //next time u are allowed to attack
-
+    
 
 
     void Update()
@@ -21,6 +21,8 @@ public class PlayerCombat : MonoBehaviour
         if (Time.time >= nextAttackTime) {
             
             if (Input.GetKeyDown(KeyCode.K)) {
+             
+               
 
                 StartCoroutine(Attack());
                 Debug.Log("Attacked Clicked");
